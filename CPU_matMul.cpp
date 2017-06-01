@@ -2,8 +2,8 @@
 * @Author: Cheng-Hung HSIEH
 * @Date:   2017-05-30 20:30:25
 * @Last Modified by:   jason
-* @Last Modified time: 2017-06-01 08:58:20
-* @Describe: MPI Matrix Multiplication
+* @Last Modified time: 2017-06-01 09:23:29
+* @Describe: CPU Matrix Multiplication
 */
 
 #include <stdio.h>
@@ -89,7 +89,13 @@ int main(int argc, char *argv[]){
     executime += (endtime.tv_usec - starttime.tv_usec) / 1000.0;
 
     printf(ANSI_COLOR_RED"CPU time: %13lf msec\n"ANSI_COLOR_RESET, executime);
+
+    free(M);
+    free(N);
+    free(CPU_MxN);
+    
 	return 0;
+
 }
 void CPU_matMul(double *M, double *N, double *CPU_MxN, int w1, int w2, int w3){
 
